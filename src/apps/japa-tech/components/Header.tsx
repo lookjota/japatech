@@ -16,10 +16,10 @@ function isCurrentPath(pathname: string, href: string) {
   return href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`)
 }
 
-function WhatsAppAction({ mobile = false }: { mobile?: boolean }) {
+function WhatsAppAction() {
   const href = createWhatsAppUrl()
   if (!href) return null
-  return <Button className={mobile ? 'shell-mobile-whatsapp' : ''} href={href} variant="primary" size={mobile ? 'compact' : 'default'} target="_blank" rel="noreferrer" onClick={() => trackEvent('whatsapp_click', { source: 'header' })}>{mobile ? 'WhatsApp' : 'Chamar no WhatsApp'}</Button>
+  return <Button className="shell-whatsapp" href={href} variant="primary" aria-label="Chamar no WhatsApp" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('whatsapp_click', { source: 'header' })}><span className="shell-whatsapp__desktop">Chamar no WhatsApp</span><span className="shell-whatsapp__mobile" aria-hidden="true">WhatsApp</span></Button>
 }
 
 export function Header() {
@@ -31,7 +31,7 @@ export function Header() {
     <div className="ds-container site-header__inner">
       <BrandMark />
       <nav className="desktop-nav" aria-label="Navegação principal"><ul>{primaryLinks.map((link) => <li key={link.href}><Link className={isCurrentPath(location.pathname, link.href) ? 'is-current' : ''} to={link.href} aria-current={isCurrentPath(location.pathname, link.href) ? 'page' : undefined}>{link.label}</Link></li>)}</ul></nav>
-      <div className="site-header__actions"><WhatsAppAction /><WhatsAppAction mobile /><button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} onClick={() => setMenuOpen((open) => !open)}><span className="menu-toggle__icon" aria-hidden="true" /></button></div>
+      <div className="site-header__actions"><WhatsAppAction /><button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} onClick={() => setMenuOpen((open) => !open)}><span className="menu-toggle__icon" aria-hidden="true" /></button></div>
     </div>
     {menuOpen && <nav id="mobile-navigation" className="mobile-nav" aria-label="Navegação móvel"><ul>{primaryLinks.map((link) => <li key={link.href}><Link onClick={closeMenu} className={isCurrentPath(location.pathname, link.href) ? 'is-current' : ''} to={link.href} aria-current={isCurrentPath(location.pathname, link.href) ? 'page' : undefined}>{link.label}</Link></li>)}</ul></nav>}
   </header>

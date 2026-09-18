@@ -33,8 +33,10 @@ describe('global shell', () => {
     expect(screen.queryByRole('navigation', { name: 'Navegação móvel' })).not.toBeInTheDocument()
   })
 
-  it('does not render a WhatsApp CTA without configuration', () => {
+  it('renders the configured WhatsApp CTA with a normalized destination', () => {
     renderShell()
-    expect(screen.queryByRole('link', { name: /WhatsApp/i })).not.toBeInTheDocument()
+    const header = screen.getByRole('banner')
+    expect(within(header).getAllByRole('link', { name: /WhatsApp/ })).toHaveLength(1)
+    expect(within(header).getByRole('link', { name: 'Chamar no WhatsApp' })).toHaveAttribute('href', expect.stringContaining('wa.me/5561995646646'))
   })
 })

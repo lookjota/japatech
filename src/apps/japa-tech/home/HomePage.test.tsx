@@ -13,9 +13,9 @@ describe('home page', () => {
     expect(screen.getAllByRole('link', { name: /Ver categoria/ })).toHaveLength(5)
   })
 
-  it('does not render a dead WhatsApp CTA without a configured number', () => {
+  it('renders configured WhatsApp CTAs with valid destinations', () => {
     render(<MemoryRouter><HomePage page={homePage} /></MemoryRouter>)
-    expect(screen.queryByRole('link', { name: 'Chamar no WhatsApp' })).not.toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'Falar sobre minha TV' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Chamar no WhatsApp' })).toHaveAttribute('href', expect.stringContaining('wa.me/5561995646646'))
+    expect(screen.getByRole('link', { name: 'Falar sobre minha TV' })).toHaveAttribute('href', expect.stringContaining('wa.me/5561995646646'))
   })
 })

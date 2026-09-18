@@ -56,7 +56,7 @@ p { margin: 0; }
 .desktop-nav a:focus-visible, .mobile-nav a:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
 .site-header__actions { align-items: center; display: flex; gap: var(--space-2); }
 .site-header__actions .ds-button { white-space: nowrap; }
-.shell-mobile-whatsapp, .menu-toggle, .mobile-nav { display: none; }
+.shell-whatsapp__mobile, .menu-toggle, .mobile-nav { display: none; }
 .menu-toggle { background: transparent; border: 1px solid rgb(255 255 255 / 0.35); border-radius: var(--radius-button); color: var(--color-surface); min-height: 2.75rem; min-width: 2.75rem; padding: 0.625rem; }
 .menu-toggle:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
 .menu-toggle__icon, .menu-toggle__icon::before, .menu-toggle__icon::after { background: currentColor; content: ''; display: block; height: 2px; margin: auto; width: 1.125rem; }
@@ -230,6 +230,6 @@ p { margin: 0; }
 @media (max-width: 800px) { .home-hero__grid, .home-tv__grid, .home-products__grid, .home-trust__grid { grid-template-columns: 1fr; } .home-hero__copy { max-width: 40rem; } .home-hero__media { max-width: 42rem; width: 100%; } .home-process-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .home-trust__grid { gap: var(--space-6); } }
 @media (max-width: 600px) { .home-service-grid, .home-process-list { grid-template-columns: 1fr; } .home-service-card:last-child { grid-column: auto; } .home-hero__copy { gap: var(--space-5); } .home-hero h1 { font-size: clamp(2.75rem, 13vw, 4rem); } .home-tv__media { min-height: 14rem; } .home-facts { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .ds-spacing-demo { grid-template-columns: 1fr; } .ds-action-row { align-items: stretch; flex-direction: column; } .ds-action-row > * { width: 100%; } .ds-action-row .ds-surface { padding: 0.25rem; } }
-@media (max-width: 800px) { .site-header__inner { gap: var(--space-3); min-height: 4.25rem; } .desktop-nav, .site-header__actions > .ds-button { display: none; } .site-header__actions > .shell-mobile-whatsapp, .menu-toggle { display: inline-flex; } .site-header__actions { margin-left: auto; } .mobile-nav { display: block; } .site-footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } .site-footer__brand { grid-column: 1 / -1; } }
+@media (max-width: 800px) { .site-header__inner { gap: var(--space-3); min-height: 4.25rem; } .desktop-nav { display: none; } .shell-whatsapp { min-height: 2.5rem; padding: 0.625rem 1rem; } .shell-whatsapp__desktop { display: none; } .shell-whatsapp__mobile, .menu-toggle { display: inline-flex; } .site-header__actions { margin-left: auto; } .mobile-nav { display: block; } .site-footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } .site-footer__brand { grid-column: 1 / -1; } }
 @media (max-width: 480px) { .site-footer__top { grid-template-columns: 1fr; } .site-footer__brand { grid-column: auto; } .site-header__inner { width: min(calc(100% - 1.5rem), 80rem); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } .reveal--pending { opacity: 1; transform: none; transition: none; } }

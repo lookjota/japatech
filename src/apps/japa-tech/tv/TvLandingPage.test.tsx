@@ -14,10 +14,11 @@ describe('TV landing page', () => {
     expect(screen.getByRole('heading', { name: 'Dependendo do defeito, podemos ir até você.' })).toBeInTheDocument()
   }, 10000)
 
-  it('keeps WhatsApp CTAs absent without configuration and renders visible FAQs', () => {
+  it('renders contextual WhatsApp CTAs and visible FAQs when configured', () => {
     render(<MemoryRouter><TvLandingPage page={tvPage} /></MemoryRouter>)
-    expect(screen.queryByRole('link', { name: 'Falar com o Japa' })).not.toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'Falar sobre minha TV' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Falar com o Japa' })).toHaveAttribute('href', expect.stringContaining('wa.me/5561995646646'))
+    expect(screen.getAllByRole('link', { name: 'Falar sobre minha TV' })).toHaveLength(2)
+    expect(screen.getByRole('link', { name: 'Falar com o Japa' }).getAttribute('href')).toContain('Marca%2Fmodelo')
     expect(screen.getByText('Vocês atendem TV em domicílio?')).toBeInTheDocument()
     expect(screen.getByText('Qual é a garantia?')).toBeInTheDocument()
   })
