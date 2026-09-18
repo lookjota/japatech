@@ -4,7 +4,7 @@ import { absoluteUrl, siteConfig } from '../config/site'
 
 const pageDefinitions = [
   ['home', '/', 'JAPA TECH — Assistência Técnica e Eletrônicos', 'Fundação digital da JAPA TECH, assistência técnica e eletrônicos em Taguatinga, DF.'],
-  ['technical-assistance', '/assistencia-tecnica', 'Assistência Técnica | JAPA TECH', 'Informações sobre assistência técnica da JAPA TECH.'],
+  ['technical-assistance', '/assistencia-tecnica', 'Assistência Técnica para Eletrônicos no DF | JAPA TECH', 'Assistência técnica para TVs, notebooks, computadores, monitores, áudio e outros eletrônicos sob avaliação no DF e Entorno.'],
   ['tv', '/assistencia-tecnica/tv', 'Assistência Técnica de TV no DF e Entorno | JAPA TECH', 'Assistência técnica de TV no DF e Entorno para problemas de imagem, som, fonte e placa.'],
   ['notebook', '/assistencia-tecnica/notebook', 'Assistência Técnica para Notebook | JAPA TECH', 'Página técnica de assistência para notebook da JAPA TECH.'],
   ['computer', '/assistencia-tecnica/computador', 'Assistência Técnica para Computador | JAPA TECH', 'Página técnica de assistência para computador da JAPA TECH.'],
