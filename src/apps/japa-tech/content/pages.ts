@@ -23,4 +23,5 @@ function structuredData(title: string, description: string, slug: string): JsonL
   return [{ '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url, inLanguage: siteConfig.locale, isPartOf: { '@type': 'WebSite', name: siteConfig.siteName, url: absoluteUrl('/')! } }]
 }
 export const pages: Page[] = pageDefinitions.map(([id, slug, title, description]) => ({ id, slug, heading: title, summary: description, metadata: { title, description, locale: siteConfig.locale, siteName: siteConfig.siteName, canonicalUrl: absoluteUrl(slug), robots: { index: true, follow: true }, structuredData: structuredData(title, description, slug) } }))
+export const homePage = pages.find((page) => page.slug === '/')!
 export const notFoundPage: Page = { id: 'not-found', slug: '/404', heading: 'Página não encontrada', summary: 'A página solicitada não está disponível.', metadata: { title: 'Página não encontrada | JAPA TECH', description: 'Página não encontrada na JAPA TECH.', locale: siteConfig.locale, siteName: siteConfig.siteName, robots: { index: false, follow: true } } }
